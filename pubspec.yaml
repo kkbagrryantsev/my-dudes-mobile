@@ -39,6 +39,7 @@ dependencies:
   flutter_map: ^6.1.0
   url_launcher: ^6.2.4
   vector_map_tiles: ^7.0.1
+  google_fonts: any
 
 dev_dependencies:
   flutter_test:

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:mydudes/widgets/user_marker.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:mydudes/user_marker.dart';
 
 class Map extends StatelessWidget {
   final UserMarker miqqra = const UserMarker(
@@ -26,6 +26,8 @@ class Map extends StatelessWidget {
       83.092250,
     ),
   );
+
+  const Map({super.key});
 
   @override
   Widget build(BuildContext context) {

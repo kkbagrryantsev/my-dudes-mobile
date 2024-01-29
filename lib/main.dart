@@ -1,15 +1,6 @@
 import 'package:flutter/material.dart';
-import 'map.dart';
 
-void main() {
-  runApp(MyDudesApp());
-}
+import 'app.dart';
 
-class MyDudesApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Map(),
-    );
-  }
-}
+
+void main() => runApp(const MyDudesApp());
