@@ -8,7 +8,7 @@ class Map extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FlutterMap(
-        options: MapOptions(
+        options: const MapOptions(
           initialCenter: LatLng(54.842943, 83.091017),
           initialZoom: 15,
           keepAlive: true,
@@ -21,7 +21,7 @@ class Map extends StatelessWidget {
             urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
             userAgentPackageName: 'com.mydudes.app',
           ),
-          MarkerLayer(
+          const MarkerLayer(
             markers: [
               Marker(
                 point: LatLng(54.842943, 83.091017),
