@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:mydudes/widgets/meet_marker.dart';
 import 'package:mydudes/widgets/user_marker.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Map extends StatelessWidget {
+  final MeetMarker meet = const MeetMarker(
+  'assets/images/miqqra.png', LatLng(
+  54.847490,
+  83.092430,
+  )
+
+  );
+
   final UserMarker miqqra = const UserMarker(
     'assets/images/miqqra.png',
     LatLng(
@@ -65,6 +74,11 @@ class Map extends StatelessWidget {
                 width: chlim.width,
                 height: chlim.height,
                 child: chlim,
+              ),Marker(
+                point: meet.point,
+                width: meet.width,
+                height: meet.height,
+                child: meet,
               ),
             ],
           ),

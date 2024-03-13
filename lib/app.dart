@@ -7,7 +7,7 @@ class MyDudesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const HomeScreen(),
+      home: HomeScreen(),
       theme: ThemeData.dark().copyWith(
         textTheme: const TextTheme(
             bodyMedium: TextStyle(
