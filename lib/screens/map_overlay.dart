@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:mydudes/widgets/map.dart';
 
-import '../widgets/search_bottom_sheet.dart';
+import '../widgets/stateless_search.dart';
 
 class MapOverlay extends StatelessWidget {
   const MapOverlay({super.key});

@@ -9,6 +9,14 @@ class MyDudesApp extends StatelessWidget {
     return MaterialApp(
       home: HomeScreen(),
       theme: ThemeData.dark().copyWith(
+        searchBarTheme: SearchBarThemeData(
+            shape: MaterialStatePropertyAll(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+            ),
+            backgroundColor: MaterialStatePropertyAll(Color(0xFF363636)),
+            surfaceTintColor: MaterialStatePropertyAll(Color(0x00000000)),
+            textStyle:
+                MaterialStatePropertyAll(TextStyle(color: Color(0xFF929292)))),
         textTheme: const TextTheme(
             bodyMedium: TextStyle(
           color: Colors.white,
@@ -22,7 +30,7 @@ class MyDudesApp extends StatelessWidget {
           // A darker version of the secondary color, used for certain elements
           surface: Colors.white,
           // Surface color (background color of surfaces such as cards)
-          background: Color(0x00272727),
+          background: Color(0xFF1b1b1b),
           // Background color (overall background color of the app)
           error: Colors.redAccent,
           // Error color (typically used to indicate errors or validation issues)

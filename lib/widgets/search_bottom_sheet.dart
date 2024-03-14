@@ -12,32 +12,31 @@ class _SearchBottomSheetState extends State<SearchBottomSheet> {
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
       initialChildSize: _bottomSheetSize,
-      minChildSize: 0.2,
-      maxChildSize: 0.8,
+      minChildSize: 0.15,
+      maxChildSize: 0.9,
+      snap: true,
       builder: (BuildContext context, ScrollController scrollController) {
         return Container(
-          color: Colors.black,
-          padding: EdgeInsets.only(
-            top: 16,
-            left: 16,
-            right: 16,
-            bottom: MediaQuery.of(context).padding.bottom + kBottomNavigationBarHeight,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(25.0),
+              topRight: Radius.circular(25.0),
+            ),
+            color: Theme.of(context).colorScheme.background
           ),
           child: ListView(
+            padding: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 0.0),
             controller: scrollController,
             children: <Widget>[
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Search',
-                  hintText: 'Type to search...',
-                ),
-                autofocus: true,
+              SearchBar(
+                leading: Icon(Icons.search),
+                hintText: "Найти мероприятия, миты...",
                 onTap: () {
                   setState(() {
-                    _bottomSheetSize = 0.8; // Expand the bottom sheet
+                    _bottomSheetSize = 0.9;
                   });
                 },
-              ),
+              )
             ],
           ),
         );

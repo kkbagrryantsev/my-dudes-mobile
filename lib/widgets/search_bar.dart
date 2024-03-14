@@ -1,54 +1,33 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-void showCustomBottomSheet(BuildContext context) {
-  showModalBottomSheet(
-    context: context,
-    isScrollControlled: true,
-    builder: (context) => CustomBottomSheet(),
-  );
-}
+import '../controllers/controller.dart';
 
-class CustomBottomSheet extends StatefulWidget {
-  @override
-  _CustomBottomSheetState createState() => _CustomBottomSheetState();
-}
+class GlobalSearchBar extends StatelessWidget {
+  final Controller controller = Get.find();
+  final FocusNode focusNode = FocusNode();
 
-class _CustomBottomSheetState extends State<CustomBottomSheet> {
-  double _bottomSheetSize = 0.1; // Initial size of the bottom sheet
+  GlobalSearchBar({super.key}) {
+    focusNode.addListener(() {
+      if (focusNode.hasFocus) {
+        controller.updateSize(0.8);
+        if (kDebugMode) {
+          print(controller.bottomSheetSize.value);
+        }
+      } else {
+        controller.updateSize(0.2);
+      }
+    });
+
+  }
 
   @override
   Widget build(BuildContext context) {
-    return DraggableScrollableSheet(
-      initialChildSize: _bottomSheetSize,
-      minChildSize: 0.1,
-      maxChildSize: 0.6,
-      builder: (BuildContext context, ScrollController scrollController) {
-        return Container(
-          padding: EdgeInsets.only(
-            top: 16,
-            left: 16,
-            right: 16,
-            bottom: MediaQuery.of(context).padding.bottom + kBottomNavigationBarHeight,
-          ),
-          child: ListView(
-            controller: scrollController,
-            children: <Widget>[
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Search',
-                  hintText: 'Type to search...',
-                ),
-                autofocus: true,
-                onTap: () {
-                  setState(() {
-                    _bottomSheetSize = 0.6; // Expand the bottom sheet
-                  });
-                },
-              ),
-            ],
-          ),
-        );
-      },
+    return SearchBar(
+      focusNode: focusNode,
+      leading: Icon(Icons.search),
+      hintText: "Найти мероприятия, миты...",
     );
   }
 }
